@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+
+class Complex{
+	int x;
+   public:
+   	void setData(int a){
+   		x=a;
+	}
+	void displayData(){
+		cout<<"\t\t"<<x<<endl;
+	}
+	Complex operator++(){
+		++x;
+		cout<<"\n(Applying PreIncrement)\n";
+	}
+	Complex operator++(int){
+		x++;
+		cout<<"\n(Applying PostIncrement)\n";
+	}
+};
+
+int main()
+{
+	int m;
+	cout<<endl<<endl;
+	cout<<"Enter a Number : \n";
+	cin>>m;
+	cout<<endl;
+	
+	Complex c1,c2;
+	c1.setData(m);
+	cout<<"Before Overloading---";
+	cout<<"\t   \t";
+	c1.displayData();
+	++c1;
+	cout<<"After PreIncrement Overloading---";
+	c1.displayData();
+	c1++;
+	cout<<"After PostIncrement Overloading---";
+	c1.displayData();
+}
