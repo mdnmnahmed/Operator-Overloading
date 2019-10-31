@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+class ComplexAnd{
+	int a,b;
+   public:
+   	void setData(int x,int y){
+   		a=x;
+   		b=y;
+	}
+	void displayData(){
+		cout<<"\t\t"<<a<<"\t"<<b<<endl;
+	}
+	friend ComplexAnd operator&&(ComplexAnd &,ComplexAnd &);
+};
+ComplexAnd operator&&(ComplexAnd &m,ComplexAnd &n){
+	ComplexAnd temp;
+	temp.a=m.a&&n.a;
+	temp.b=m.b&&n.b;
+	return temp;
+}
+
+int main()
+{
+	int m,n,o,p;
+	cout<<endl<<endl;
+	cout<<"Enter value of First A & B : \n";
+	cin>>m>>n;
+	cout<<endl;
+	cout<<"Enter value of Second A & B : \n";
+	cin>>o>>p;
+	cout<<endl;
+	
+	ComplexAnd c1,c2,c3;
+	c1.setData(m,n);
+	c2.setData(o,p);
+	c3=c1&&c2;
+	cout<<"First---";
+	c1.displayData();
+	cout<<"Second---";
+	c2.displayData();
+	cout<<"\t\t     ---------------\n";
+	cout<<"&& Operation---";
+	c3.displayData();
+	cout<<"\t\t     ---------------\n";
+}
